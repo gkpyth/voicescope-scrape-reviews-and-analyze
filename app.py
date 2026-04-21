@@ -626,7 +626,7 @@ def main() -> None:
             png_btn = f'''<a href="data:image/png;base64,{png_b64}" download="{png_filename}" class="vs-dl-btn">⬇ &nbsp;Download Chart PNG</a>'''
         else:
             err = st.session_state.get('png_error', 'unknown error')
-            png_btn = '<span class="vs-dl-note">PNG export failed: {err}</span>'
+            png_btn = f'<span class="vs-dl-note">PNG export failed: {err}</span>'
 
         st.markdown(f'''
         <div class="vs-dl-row">
