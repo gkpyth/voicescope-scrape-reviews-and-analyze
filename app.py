@@ -465,47 +465,44 @@ def build_rating_chart(df: pd.DataFrame) -> go.Figure:
     return fig
 
 
-def export_png(fig_cat: go.Figure, fig_rat: go.Figure) -> bytes | None:
+def export_html(fig_cat: go.Figure, fig_rat: go.Figure) -> str:
     """
-    Attempt to export both charts as a single combined PNG.
-    Returns None if kaleido is not installed - Plotly's built-in camera icon on each chart serves as the fallback.
+    Export both charts as a single self-contained interactive HTML file.
+    Uses Plotly's built-in HTML export.
+
+    The output is a fully interactive chart the user can open in any browser.
     """
-    try:
-        import kaleido # noqa: F401 - Confirms kaleido is importable before pio call
-        import plotly.io as pio
-        from plotly.subplots import make_subplots
+    from plotly.subplots import make_subplots
 
-        fig = make_subplots(
-            rows               = 1,
-            cols               = 2,
-            subplot_titles     = ("Category Breakdown by Sentiment", "Rating Distribution"),
-            horizontal_spacing = 0.14,
-        )
-        for trace in fig_cat.data:
-            fig.add_trace(trace, row=1, col=1)
-        for trace in fig_rat.data:
-            # Hide rating traces from legend — they'd show as "trace N"
-            trace.showlegend = False
-            fig.add_trace(trace, row=1, col=2)
+    fig = make_subplots(
+        rows               = 1,
+        cols               = 2,
+        subplot_titles     = ("Category Breakdown by Sentiment", "Rating Distribution"),
+        horizontal_spacing = 0.14,
+    )
+    for trace in fig_cat.data:
+        fig.add_trace(trace, row=1, col=1)
+    for trace in fig_rat.data:
+        # Hide rating traces from legend — they'd show as "trace N"
+        trace.showlegend = False
+        fig.add_trace(trace, row=1, col=2)
 
-        fig.update_layout(
-            paper_bgcolor = "#F7F5F2",
-            plot_bgcolor  = "#F7F5F2",
-            font          = dict(family="DM Sans", color="#1C1C1C"),
-            barmode       = "stack",
-            height        = 500,
-            width         = 1400,
-            showlegend    = True,
-            legend        = dict(
-                orientation = "h",
-                x=0.5, xanchor="center", y=-0.08,
-                font=dict(family="DM Sans", size=11),
-            ),
-            margin        = dict(l=160, r=60, t=80, b=80),
-        )
-        return pio.to_image(fig, format="png", scale=2)
-    except Exception as e:
-        return str(e)   # return error string instead of None so UI can display it
+    fig.update_layout(
+        paper_bgcolor = "#F7F5F2",
+        plot_bgcolor  = "#F7F5F2",
+        font          = dict(family="DM Sans", color="#1C1C1C"),
+        barmode       = "stack",
+        height        = 500,
+        width         = 1400,
+        showlegend    = True,
+        legend        = dict(
+            orientation = "h",
+            x=0.5, xanchor="center", y=-0.08,
+            font=dict(family="DM Sans", size=11),
+        ),
+        margin        = dict(l=160, r=60, t=80, b=80),
+    )
+    return fig.to_html(full_html=True, include_plotlyjs="cdn")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -610,25 +607,21 @@ def main() -> None:
         )
 
         csv_bytes = df.to_csv(index=False).encode("utf-8")
-        png_bytes = export_png(fig_cat, fig_rat)
+        chart_html = export_html(fig_cat, fig_rat)
 
         # Encode CSV for inline HTML download link
         import base64
         csv_b64 = base64.b64encode(csv_bytes).decode()
         csv_filename = f"voicescope_intercom_{datetime.now().strftime('%Y%m%d')}.csv"
 
-        if png_bytes:
-            png_b64 = base64.b64encode(png_bytes).decode()
-            png_filename = f"voicescope_charts_{datetime.now().strftime('%Y%m%d')}.png"
-            png_btn = f'''<a href="data:image/png;base64,{png_b64}" download="{png_filename}" class="vs-dl-btn">⬇ &nbsp;Download Chart PNG</a>'''
-        else:
-            err = st.session_state.get('png_error', 'unknown error')
-            png_btn = f'<span class="vs-dl-note">PNG export failed: {err}</span>'
+        chart_64 = base64.b64encode(chart_html.encode()).decode()
+        chart_filename = f"voicescope_charts_{datetime.now().strftime('%Y%m%d')}.html"
+        chart_btn = f'''<a href="data:text/html;base64,{chart_64}" download="{chart_filename}" class="vs-dl-btn">⬇ &nbsp;Download Chart</a>'''
 
         st.markdown(f'''
         <div class="vs-dl-row">
             <a href="data:text/csv;base64,{csv_b64}" download="{csv_filename}" class="vs-dl-btn">⬇ &nbsp;Download CSV</a>
-            {png_btn}
+            {chart_btn}
         </div>''', unsafe_allow_html=True)
 
         st.markdown('<hr class="vs-divider">', unsafe_allow_html=True)
