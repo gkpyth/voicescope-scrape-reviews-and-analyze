@@ -471,7 +471,7 @@ def export_png(fig_cat: go.Figure, fig_rat: go.Figure) -> bytes | None:
     Returns None if kaleido is not installed - Plotly's built-in camera icon on each chart serves as the fallback.
     """
     try:
-        import kaleido # Confirms kaleido is importable before pio call
+        import kaleido # noqa: F401 - Confirms kaleido is importable before pio call
         import plotly.io as pio
         from plotly.subplots import make_subplots
 
@@ -505,10 +505,7 @@ def export_png(fig_cat: go.Figure, fig_rat: go.Figure) -> bytes | None:
         )
         return pio.to_image(fig, format="png", scale=2)
     except Exception as e:
-        # Sort the error so the UI can surface it instead of silently failing
-        import streamlit as st
-        st.session_state['png_error'] = str(e)
-        return None
+        return str(e)   # return error string instead of None so UI can display it
 
 
 # ─────────────────────────────────────────────────────────────────────────────
