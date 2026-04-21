@@ -15,6 +15,10 @@ Output:
     data/reviews_raw.csv - (contains temporary body text to be categorized)
 """
 
+
+# TODO: requests-based scraping being blocked after a couple test runs - rewrite scraper using Selenium or Playwright for future data refreshes.
+
+
 import json
 import os
 import time
