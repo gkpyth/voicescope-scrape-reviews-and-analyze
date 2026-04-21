@@ -1,0 +1,197 @@
+date,rating,category,sentiment
+2026-04-02,2,Pricing & Value,Negative
+2026-04-02,1,Pricing & Value,Negative
+2026-03-09,5,Onboarding & Setup,Positive
+2026-02-23,5,Customer Support,Positive
+2026-02-05,3,Customer Support,Negative
+2026-02-02,5,Other,Positive
+2026-01-29,5,Product UX & Design,Positive
+2026-01-12,5,Other,Positive
+2025-12-23,5,Product UX & Design,Positive
+2025-12-17,5,Product UX & Design,Positive
+2025-12-09,5,Product UX & Design,Positive
+2025-12-08,5,Product UX & Design,Positive
+2025-11-20,1,Customer Support,Negative
+2025-11-11,1,Customer Support,Negative
+2025-11-11,2,Customer Support,Negative
+2025-11-05,5,Other,Positive
+2025-10-29,1,Pricing & Value,Negative
+2025-10-24,1,Product UX & Design,Negative
+2025-10-17,5,Product UX & Design,Positive
+2025-09-15,4,Customer Support,Negative
+2025-09-11,1,Pricing & Value,Negative
+2025-09-08,4,Customer Support,Positive
+2025-08-26,5,Product UX & Design,Positive
+2025-08-15,1,Customer Support,Negative
+2025-08-11,5,Product UX & Design,Positive
+2025-08-04,5,Pricing & Value,Positive
+2025-07-31,5,Other,Neutral
+2025-08-24,1,Customer Support,Negative
+2025-07-17,1,Pricing & Value,Negative
+2025-07-01,5,Product UX & Design,Positive
+2025-06-09,1,Customer Support,Negative
+2025-05-26,1,Reliability & Bugs,Negative
+2025-05-25,2,Customer Support,Negative
+2025-05-22,1,Pricing & Value,Negative
+2025-05-21,2,Customer Support,Negative
+2025-05-13,5,Product UX & Design,Positive
+2025-05-12,4,Pricing & Value,Neutral
+2025-05-07,5,Product UX & Design,Positive
+2025-05-05,4,Reliability & Bugs,Neutral
+2025-05-03,5,Customer Support,Positive
+2025-04-24,1,Customer Support,Negative
+2025-04-22,5,Customer Support,Positive
+2025-04-18,2,Pricing & Value,Negative
+2025-04-18,5,Pricing & Value,Positive
+2025-03-28,1,Reliability & Bugs,Negative
+2025-03-28,1,Customer Support,Negative
+2025-03-25,5,Product UX & Design,Positive
+2025-03-24,5,Customer Support,Positive
+2025-03-17,5,Product UX & Design,Positive
+2025-03-14,5,Customer Support,Positive
+2025-03-13,5,Product UX & Design,Positive
+2025-03-10,1,Reliability & Bugs,Negative
+2025-03-06,5,Product UX & Design,Positive
+2025-03-04,4,Other,Positive
+2025-02-04,5,Product UX & Design,Positive
+2025-01-06,1,Pricing & Value,Negative
+2024-12-06,1,Customer Support,Negative
+2024-11-20,1,Customer Support,Negative
+2024-11-06,2,Reliability & Bugs,Negative
+2024-11-05,5,Customer Support,Positive
+2024-10-30,1,Reliability & Bugs,Negative
+2024-10-03,4,Pricing & Value,Positive
+2024-09-16,5,Onboarding & Setup,Positive
+2024-08-23,1,Customer Support,Negative
+2024-07-25,1,Pricing & Value,Negative
+2024-07-12,3,Customer Support,Negative
+2024-07-01,1,Pricing & Value,Negative
+2024-06-17,1,Reliability & Bugs,Negative
+2024-05-09,5,Customer Support,Positive
+2024-05-08,2,Reliability & Bugs,Negative
+2024-05-04,5,Product UX & Design,Positive
+2024-03-21,5,Reliability & Bugs,Neutral
+2024-02-22,1,Pricing & Value,Negative
+2024-02-20,1,Pricing & Value,Negative
+2024-02-20,1,Other,Negative
+2024-02-20,3,Pricing & Value,Negative
+2024-02-15,1,Pricing & Value,Negative
+2024-01-26,5,Product UX & Design,Positive
+2024-01-29,1,Pricing & Value,Negative
+2024-01-01,5,Product UX & Design,Neutral
+2023-12-30,4,Product UX & Design,Positive
+2023-11-29,3,Pricing & Value,Negative
+2023-11-17,1,Pricing & Value,Negative
+2023-11-22,5,Customer Support,Positive
+2023-11-15,1,Missing Features,Negative
+2023-10-31,5,Product UX & Design,Positive
+2023-10-17,1,Customer Support,Negative
+2023-09-25,4,Reliability & Bugs,Negative
+2023-09-26,1,Reliability & Bugs,Negative
+2023-09-15,5,Other,Positive
+2023-09-11,5,Other,Positive
+2023-08-24,1,Customer Support,Negative
+2023-08-21,4,Product UX & Design,Positive
+2023-08-23,1,Reliability & Bugs,Negative
+2023-08-14,5,Pricing & Value,Positive
+2023-08-02,5,Reliability & Bugs,Neutral
+2023-07-29,1,Customer Support,Negative
+2023-07-20,1,Customer Support,Negative
+2023-08-02,1,Pricing & Value,Negative
+2023-07-13,5,Product UX & Design,Positive
+2023-07-04,1,Customer Support,Negative
+2023-08-02,5,Product UX & Design,Positive
+2023-06-11,1,Pricing & Value,Negative
+2023-06-05,5,Product UX & Design,Positive
+2023-05-25,2,Customer Support,Negative
+2023-05-08,1,Pricing & Value,Negative
+2023-04-17,4,Product UX & Design,Positive
+2023-04-14,5,Customer Support,Positive
+2023-03-27,4,Missing Features,Neutral
+2023-03-15,5,Product UX & Design,Positive
+2023-03-14,1,Pricing & Value,Negative
+2023-03-07,1,Pricing & Value,Negative
+2023-02-11,5,Other,Positive
+2023-02-10,3,Customer Support,Negative
+2023-02-09,5,Product UX & Design,Positive
+2023-01-02,5,Customer Support,Positive
+2022-12-29,4,Product UX & Design,Negative
+2022-12-15,4,Reliability & Bugs,Negative
+2022-12-07,5,Missing Features,Neutral
+2022-12-01,4,Pricing & Value,Negative
+2022-11-28,4,Missing Features,Neutral
+2022-12-12,5,Reliability & Bugs,Neutral
+2022-11-23,4,Missing Features,Positive
+2022-11-07,4,Product UX & Design,Positive
+2022-10-31,4,Customer Support,Negative
+2022-10-29,1,Pricing & Value,Negative
+2022-10-28,1,Pricing & Value,Negative
+2022-10-27,5,Reliability & Bugs,Positive
+2022-10-23,3,Product UX & Design,Negative
+2022-10-23,1,Pricing & Value,Negative
+2022-10-17,5,Product UX & Design,Positive
+2022-10-13,1,Customer Support,Negative
+2022-09-20,5,Customer Support,Positive
+2022-09-09,1,Pricing & Value,Negative
+2022-08-19,5,Other,Positive
+2022-08-11,1,Product UX & Design,Negative
+2022-08-04,5,Missing Features,Neutral
+2022-07-25,4,Customer Support,Positive
+2022-07-20,5,Pricing & Value,Positive
+2022-07-19,5,Product UX & Design,Positive
+2022-07-16,5,Reliability & Bugs,Positive
+2022-07-08,5,Other,Positive
+2022-06-27,4,Product UX & Design,Positive
+2022-06-13,4,Product UX & Design,Positive
+2022-06-07,4,Reliability & Bugs,Negative
+2022-05-23,1,Customer Support,Negative
+2022-05-20,4,Product UX & Design,Positive
+2022-04-22,3,Pricing & Value,Negative
+2022-04-21,4,Missing Features,Neutral
+2022-04-14,4,Customer Support,Positive
+2022-04-14,5,Product UX & Design,Positive
+2022-04-07,4,Missing Features,Neutral
+2022-04-07,4,Reliability & Bugs,Negative
+2022-04-05,4,Product UX & Design,Positive
+2022-04-04,4,Pricing & Value,Negative
+2022-04-01,1,Customer Support,Negative
+2022-03-31,4,Missing Features,Positive
+2022-04-08,1,Customer Support,Negative
+2022-03-22,4,Customer Support,Negative
+2022-03-21,5,Reliability & Bugs,Positive
+2022-03-18,4,Other,Positive
+2022-03-18,5,Product UX & Design,Positive
+2022-03-18,1,Pricing & Value,Negative
+2022-03-17,5,Other,Positive
+2022-03-08,1,Pricing & Value,Negative
+2022-02-24,5,Product UX & Design,Positive
+2022-02-22,4,Pricing & Value,Negative
+2022-02-19,4,Pricing & Value,Negative
+2022-02-13,5,Other,Positive
+2022-02-07,3,Customer Support,Negative
+2022-01-27,5,Product UX & Design,Positive
+2022-01-26,3,Pricing & Value,Negative
+2022-01-25,1,Customer Support,Negative
+2022-01-24,4,Missing Features,Positive
+2022-01-20,4,Pricing & Value,Neutral
+2022-01-20,1,Customer Support,Negative
+2022-01-20,4,Missing Features,Negative
+2022-01-17,5,Product UX & Design,Positive
+2022-01-17,4,Missing Features,Negative
+2022-01-15,5,Other,Positive
+2022-01-11,5,Product UX & Design,Positive
+2022-01-11,1,Customer Support,Negative
+2022-01-09,4,Pricing & Value,Neutral
+2022-01-05,4,Product UX & Design,Positive
+2021-12-29,4,Missing Features,Negative
+2021-12-29,4,Missing Features,Neutral
+2021-12-28,4,Missing Features,Neutral
+2021-12-27,5,Other,Positive
+2021-12-15,1,Missing Features,Negative
+2021-12-15,1,Customer Support,Negative
+2021-12-14,1,Missing Features,Negative
+2021-12-10,3,Reliability & Bugs,Negative
+2021-12-06,4,Customer Support,Negative
+2021-12-08,3,Missing Features,Neutral
+2021-11-18,2,Pricing & Value,Negative
+2021-11-08,4,Product UX & Design,Positive
