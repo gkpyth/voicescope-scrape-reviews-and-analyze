@@ -551,7 +551,7 @@ def main() -> None:
         st.markdown(
             '<p style="text-align:center;font-family:\'DM Sans\',sans-serif;'
             'color:#6B6864;font-size:0.93rem;margin-bottom:1.5rem;">'
-            'Tap below to run sentiment and category analysis across all '
+            'Click Analyze Reviews to run sentiment and category analysis across all '
             f'{total} collected reviews.'
             '</p>',
             unsafe_allow_html=True,
