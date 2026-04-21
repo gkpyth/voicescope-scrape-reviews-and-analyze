@@ -78,7 +78,7 @@ def inject_css() -> None:
         .vs-title {
             text-align: center;
             font-family: 'Syne', sans-serif;
-            font-size: 5rem !important;
+            font-size: 3rem !important;
             font-weight: 800;
             color: #1C1C1C;
             margin: 0;
@@ -471,6 +471,7 @@ def export_png(fig_cat: go.Figure, fig_rat: go.Figure) -> bytes | None:
     Returns None if kaleido is not installed - Plotly's built-in camera icon on each chart serves as the fallback.
     """
     try:
+        import kaleido # Confirms kaleido is importable before pio call
         import plotly.io as pio
         from plotly.subplots import make_subplots
 
@@ -503,7 +504,10 @@ def export_png(fig_cat: go.Figure, fig_rat: go.Figure) -> bytes | None:
             margin        = dict(l=160, r=60, t=80, b=80),
         )
         return pio.to_image(fig, format="png", scale=2)
-    except Exception:
+    except Exception as e:
+        # Sort the error so the UI can surface it instead of silently failing
+        import streamlit as st
+        st.session_state['png_error'] = str(e)
         return None
 
 
@@ -541,7 +545,7 @@ def main() -> None:
             f'<div class="vs-meta-wrap">'
             f'<span class="vs-meta">'
             f'📅 Data last collected: {date_str}&nbsp;&nbsp;·&nbsp;&nbsp;'
-            f'{total} Intercom reviews collected'
+            f'{total} reviews collected'
             f'</span></div>',
             unsafe_allow_html=True,
         )
@@ -621,7 +625,8 @@ def main() -> None:
             png_filename = f"voicescope_charts_{datetime.now().strftime('%Y%m%d')}.png"
             png_btn = f'''<a href="data:image/png;base64,{png_b64}" download="{png_filename}" class="vs-dl-btn">⬇ &nbsp;Download Chart PNG</a>'''
         else:
-            png_btn = '<span class="vs-dl-note">PNG: install kaleido for chart download</span>'
+            err = st.session_state.get('png_error', 'unknown error')
+            png_btn = '<span class="vs-dl-note">PNG export failed: {err}</span>'
 
         st.markdown(f'''
         <div class="vs-dl-row">
