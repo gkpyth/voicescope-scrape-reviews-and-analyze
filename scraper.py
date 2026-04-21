@@ -23,10 +23,15 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # ─────────────────────────────────────────────────────────────────────────────
 # CONFIG - Specific to website
 # ─────────────────────────────────────────────────────────────────────────────
-BASE_URL  = os.getenv("WEBSITE_URL")
+BASE_URL  = os.getenv("BASE_URL")
+WEBSITE_URL = os.getenv("WEBSITE_URL")
 MAX_PAGES = 10       # Capped unauthenticated access at 10 pages
 DELAY     = 2.5      # Seconds between requests — be a good, polite bot
 OUTPUT    = "data/reviews_raw.csv"
@@ -40,7 +45,7 @@ HEADERS = {
     ),
     "Accept-Language": "en-US,en;q=0.9",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Referer": os.getenv("BASE_URL"),
+    "Referer": BASE_URL,
 }
 
 
@@ -105,10 +110,24 @@ def extract_from_html(soup: BeautifulSoup) -> list[dict]:
     return reviews
 
 
+# Persistent session - simulates real browser visit by hitting the homepage first to pick up cookies before requesting
+# review pages.
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+
+def warm_session() -> None:
+    """Visiting the homepage to acquire cookies before scraping review pages."""
+    try:
+        SESSION.get(BASE_URL, timeout=15)
+        time.sleep(1.5)
+    except Exception:
+        pass
+
+
 def scrape_page(page_num: int) -> list[dict]:
     """Fetch a single page of reviews and return parsed records."""
-    url = BASE_URL if page_num == 1 else f"{BASE_URL}?page={page_num}"
-    response = requests.get(url, headers=HEADERS, timeout=15)
+    url = WEBSITE_URL if page_num == 1 else f"{WEBSITE_URL}?page={page_num}"
+    response = SESSION.get(url, headers=HEADERS, timeout=15)
     response.raise_for_status()
 
     soup = BeautifulSoup(response.text, "html.parser")
@@ -128,7 +147,9 @@ def main() -> None:
     os.makedirs("data", exist_ok=True)
     all_reviews: list[dict] = []
 
-    print(f"Starting scrape: {BASE_URL}")
+    print("Warming session (acquiring cookies)...")
+    warm_session()
+    print(f"Starting scrape: {WEBSITE_URL}")
     print(f"Pages to attempt: {MAX_PAGES}  |  Delay: {DELAY}s\n")
 
     for page in range(1, MAX_PAGES + 1):
